@@ -13,6 +13,7 @@ COPY ./package.json .
 COPY ./package-lock.json .
 RUN npm install
 COPY . /app
+RUN chown node:node -R /app
 ENTRYPOINT ["node", "/app/main.js"]
 USER node
 ENV CHROME_LOCATION="/opt/google/chrome/chrome"
